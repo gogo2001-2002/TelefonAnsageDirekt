@@ -71,7 +71,10 @@ class TelefonansageDirekt extends IPSModule
                 ['type' => 'NumberSpinner', 'name' => 'MaxRetries', 'caption' => 'Wiederholungen bei Fehler', 'minimum' => 0, 'maximum' => 5],
                 ['type' => 'NumberSpinner', 'name' => 'RetryDelay', 'caption' => 'Pause vor Wiederholung (Sekunden)', 'minimum' => 1, 'maximum' => 600],
                 ['type' => 'Label', 'caption' => 'Telefonansage Direkt – Version 1.1'],
-                ['type' => 'Label', 'caption' => "Funktionsübersicht: TAD_StartCall(Instanz-ID, Telefonnummer, Ansagetext) stellt einen Anrufauftrag in die FIFO-Warteschlange. Beispiel: TAD_StartCall(12345, '+491701234567', 'Achtung, eine Störung liegt vor.'); Die konfigurierte VoIP-Instanz baut den Anruf auf, AWS Polly erzeugt die Sprachausgabe. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Die Warteschlange bleibt über Neustarts hinweg erhalten. Wartezeit auf Annahme, Anzahl der Wiederholungen und Pause vor Wiederholungen sind konfigurierbar. TAD_ClearQueue(Instanz-ID) leert die Warteschlange, beendet aber keinen laufenden Anruf. TAD_Hangup(Instanz-ID) beendet den aktiven Anruf. Status, aktiver Anruf, Warteschlangenlänge und letzter Fehler werden als Variablen angezeigt."]
+                ['type' => 'Label', 'caption' => "Zusammenfassung: Das Modul führt ausgehende Telefonansagen über die konfigurierte VoIP-Instanz aus. AWS Polly erzeugt die Sprachausgabe. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Anrufaufträge werden in einer FIFO-Warteschlange gespeichert, die Neustarts übersteht. Wartezeit auf Annahme, Anzahl der Wiederholungen und Pause vor Wiederholungen sind konfigurierbar."],
+                ['type' => 'Label', 'caption' => "TAD_StartCall(Instanz-ID, Telefonnummer, Ansagetext): Fügt einen Anrufauftrag zur Warteschlange hinzu. Beispiel: TAD_StartCall(12345, '+491701234567', 'Achtung, eine Störung liegt vor.');"],
+                ['type' => 'Label', 'caption' => "TAD_ClearQueue(Instanz-ID): Leert die Warteschlange. Ein bereits laufender Anruf wird nicht beendet."],
+                ['type' => 'Label', 'caption' => "TAD_Hangup(Instanz-ID): Beendet den aktiven Anruf."]
             ],
             'actions' => [
                 ['type' => 'Button', 'caption' => 'Warteschlange leeren', 'onClick' => 'TAD_ClearQueue($id);'],
