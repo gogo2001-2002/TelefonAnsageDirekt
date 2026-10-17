@@ -1,10 +1,6 @@
 {
   "elements": [
     {
-      "type": "Label",
-      "caption": "Telefonansage Direkt – Version 1.1"
-    },
-    {
       "type": "SelectInstance",
       "name": "VoIPInstanceID",
       "caption": "VoIP-Instanz"
@@ -34,6 +30,10 @@
       "caption": "Pause vor Wiederholung (Sekunden)",
       "minimum": 1,
       "maximum": 600
+    },
+    {
+      "type": "Label",
+      "caption": "Telefonansage Direkt – Version 1.1"
     },
     {
       "type": "Label",
