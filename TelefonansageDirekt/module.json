@@ -1,0 +1,11 @@
+{
+  "id": "{A4D1D3B7-7B2D-4B0B-8E2D-9D7F5E2A6C41}",
+  "name": "Telefonansage Direkt",
+  "type": 3,
+  "vendor": "Custom",
+  "aliases": ["Telefonansage Direkt", "VoIP Anruf mit Sprachausgabe"],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "TAD"
+}
