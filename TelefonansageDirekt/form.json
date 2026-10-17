@@ -1,14 +1,55 @@
 {
   "elements": [
-    { "type": "SelectInstance", "name": "VoIPInstanceID", "caption": "VoIP-Instanz" },
-    { "type": "SelectInstance", "name": "TTSInstanceID", "caption": "AWS-Polly-TTS-Instanz" },
-    { "type": "NumberSpinner", "name": "AnswerTimeout", "caption": "Wartezeit auf Annahme (Sekunden)", "minimum": 5, "maximum": 300 },
-    { "type": "NumberSpinner", "name": "MaxRetries", "caption": "Wiederholungen bei Fehler", "minimum": 0, "maximum": 5 },
-    { "type": "NumberSpinner", "name": "RetryDelay", "caption": "Pause vor Wiederholung (Sekunden)", "minimum": 1, "maximum": 600 }
+    {
+      "type": "Label",
+      "caption": "Telefonansage Direkt – Version 1.1"
+    },
+    {
+      "type": "SelectInstance",
+      "name": "VoIPInstanceID",
+      "caption": "VoIP-Instanz"
+    },
+    {
+      "type": "SelectInstance",
+      "name": "TTSInstanceID",
+      "caption": "AWS-Polly-TTS-Instanz"
+    },
+    {
+      "type": "NumberSpinner",
+      "name": "AnswerTimeout",
+      "caption": "Wartezeit auf Annahme (Sekunden)",
+      "minimum": 5,
+      "maximum": 300
+    },
+    {
+      "type": "NumberSpinner",
+      "name": "MaxRetries",
+      "caption": "Wiederholungen bei Fehler",
+      "minimum": 0,
+      "maximum": 5
+    },
+    {
+      "type": "NumberSpinner",
+      "name": "RetryDelay",
+      "caption": "Pause vor Wiederholung (Sekunden)",
+      "minimum": 1,
+      "maximum": 600
+    },
+    {
+      "type": "Label",
+      "caption": "Funktionsübersicht: Das Modul führt ausgehende VoIP-Anrufe über eine vorhandene VoIP-Instanz aus und erzeugt die Ansage mit AWS Polly. Telefonnummer und Ansagetext werden je Auftrag übergeben. Aufträge werden in einer FIFO-Warteschlange verarbeitet, die auch nach einem Neustart erhalten bleibt. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Wartezeit auf Annahme, Wiederholungen und Wiederholungspause sind konfigurierbar. Status und Warteschlangenlänge werden angezeigt. Die Warteschlange kann geleert und ein aktiver Anruf beendet werden."
+    }
   ],
   "actions": [
-    { "type": "Button", "caption": "Warteschlange leeren", "onClick": "TAD_ClearQueue($id);" },
-    { "type": "Button", "caption": "Aktiven Anruf beenden", "onClick": "TAD_Hangup($id);"
+    {
+      "type": "Button",
+      "caption": "Warteschlange leeren",
+      "onClick": "TAD_ClearQueue($id);"
+    },
+    {
+      "type": "Button",
+      "caption": "Aktiven Anruf beenden",
+      "onClick": "TAD_Hangup($id);"
     }
   ]
 }
