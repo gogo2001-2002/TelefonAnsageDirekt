@@ -1,4 +1,4 @@
-# Telefonansage Direkt – IP-Symcon 9 mit Queue
+# Telefonansage Direkt – Version 1.1 (IP-Symcon 9 mit Queue)
 
 Eigenes IP-Symcon-Modul für ausgehende VoIP-Anrufe mit automatischer Sprachausgabe. Telefonnummer und Ansagetext werden bei jedem Aufruf als Parameter übergeben. Die Aufträge werden über eine FIFO-Warteschlange verarbeitet.
 
