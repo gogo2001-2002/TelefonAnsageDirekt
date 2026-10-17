@@ -6,7 +6,5 @@
   "version": "1.0",
   "build": 1,
   "date": 0,
-  "compatibility": {
-    "version": "9.0"
-  }
+  "compatibility": { "version": "9.0" }
 }
