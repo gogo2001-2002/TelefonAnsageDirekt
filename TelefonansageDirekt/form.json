@@ -1,47 +1,14 @@
 {
   "elements": [
-    {
-      "type": "SelectInstance",
-      "name": "VoIPInstanceID",
-      "caption": "VoIP-Instanz"
-    },
-    {
-      "type": "SelectInstance",
-      "name": "TTSInstanceID",
-      "caption": "AWS-Polly-TTS-Instanz"
-    },
-    {
-      "type": "NumberSpinner",
-      "name": "AnswerTimeout",
-      "caption": "Wartezeit auf Annahme (Sekunden)",
-      "minimum": 5,
-      "maximum": 300
-    },
-    {
-      "type": "NumberSpinner",
-      "name": "MaxRetries",
-      "caption": "Wiederholungen bei Fehler",
-      "minimum": 0,
-      "maximum": 5
-    },
-    {
-      "type": "NumberSpinner",
-      "name": "RetryDelay",
-      "caption": "Pause vor Wiederholung (Sekunden)",
-      "minimum": 1,
-      "maximum": 600
-    }
+    { "type": "SelectInstance", "name": "VoIPInstanceID", "caption": "VoIP-Instanz" },
+    { "type": "SelectInstance", "name": "TTSInstanceID", "caption": "AWS-Polly-TTS-Instanz" },
+    { "type": "NumberSpinner", "name": "AnswerTimeout", "caption": "Wartezeit auf Annahme (Sekunden)", "minimum": 5, "maximum": 300 },
+    { "type": "NumberSpinner", "name": "MaxRetries", "caption": "Wiederholungen bei Fehler", "minimum": 0, "maximum": 5 },
+    { "type": "NumberSpinner", "name": "RetryDelay", "caption": "Pause vor Wiederholung (Sekunden)", "minimum": 1, "maximum": 600 }
   ],
   "actions": [
-    {
-      "type": "Button",
-      "caption": "Warteschlange leeren",
-      "onClick": "TAD_ClearQueue($id);"
-    },
-    {
-      "type": "Button",
-      "caption": "Aktiven Anruf beenden",
-      "onClick": "TAD_Hangup($id);"
+    { "type": "Button", "caption": "Warteschlange leeren", "onClick": "TAD_ClearQueue($id);" },
+    { "type": "Button", "caption": "Aktiven Anruf beenden", "onClick": "TAD_Hangup($id);"
     }
   ]
 }

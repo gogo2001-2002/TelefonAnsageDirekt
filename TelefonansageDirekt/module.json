@@ -3,10 +3,7 @@
   "name": "Telefonansage Direkt",
   "type": 3,
   "vendor": "Custom",
-  "aliases": [
-    "Telefonansage Direkt",
-    "VoIP Anruf mit Sprachausgabe"
-  ],
+  "aliases": ["Telefonansage Direkt", "VoIP Anruf mit Sprachausgabe"],
   "parentRequirements": [],
   "childRequirements": [],
   "implemented": [],
