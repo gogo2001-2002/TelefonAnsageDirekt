@@ -69,7 +69,12 @@ class TelefonansageDirekt extends IPSModule
                 ['type' => 'SelectInstance', 'name' => 'TTSInstanceID', 'caption' => 'AWS-Polly-TTS-Instanz'],
                 ['type' => 'NumberSpinner', 'name' => 'AnswerTimeout', 'caption' => 'Wartezeit auf Annahme (Sekunden)', 'minimum' => 5, 'maximum' => 300],
                 ['type' => 'NumberSpinner', 'name' => 'MaxRetries', 'caption' => 'Wiederholungen bei Fehler', 'minimum' => 0, 'maximum' => 5],
-                ['type' => 'NumberSpinner', 'name' => 'RetryDelay', 'caption' => 'Pause vor Wiederholung (Sekunden)', 'minimum' => 1, 'maximum' => 600]
+                ['type' => 'NumberSpinner', 'name' => 'RetryDelay', 'caption' => 'Pause vor Wiederholung (Sekunden)', 'minimum' => 1, 'maximum' => 600],
+                ['type' => 'Label', 'caption' => 'Telefonansage Direkt – Version 1.1'],
+                ['type' => 'Label', 'caption' => "Zusammenfassung: Das Modul führt ausgehende Telefonansagen über die konfigurierte VoIP-Instanz aus. AWS Polly erzeugt die Sprachausgabe. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Anrufaufträge werden in einer FIFO-Warteschlange gespeichert, die Neustarts übersteht. Wartezeit auf Annahme, Anzahl der Wiederholungen und Pause vor Wiederholungen sind konfigurierbar."],
+                ['type' => 'Label', 'caption' => "TAD_StartCall(Instanz-ID, Telefonnummer, Ansagetext): Fügt einen Anrufauftrag zur Warteschlange hinzu. Beispiel: TAD_StartCall(12345, '+491701234567', 'Achtung, eine Störung liegt vor.');"],
+                ['type' => 'Label', 'caption' => "TAD_ClearQueue(Instanz-ID): Leert die Warteschlange. Ein bereits laufender Anruf wird nicht beendet."],
+                ['type' => 'Label', 'caption' => "TAD_Hangup(Instanz-ID): Beendet den aktiven Anruf."]
             ],
             'actions' => [
                 ['type' => 'Button', 'caption' => 'Warteschlange leeren', 'onClick' => 'TAD_ClearQueue($id);'],
