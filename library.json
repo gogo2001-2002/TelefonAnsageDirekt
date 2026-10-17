@@ -1,0 +1,12 @@
+{
+  "id": "{D1C78E5A-8A42-4C25-A4A4-6A1E96E0C931}",
+  "author": "Custom",
+  "name": "Telefonansage Direkt",
+  "url": "https://github.com/gogo2001-2002/TelefonAnsageDirekt",
+  "version": "1.0",
+  "build": 1,
+  "date": 0,
+  "compatibility": {
+    "version": "9.0"
+  }
+}
