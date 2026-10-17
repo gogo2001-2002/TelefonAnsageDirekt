@@ -37,7 +37,7 @@
     },
     {
       "type": "Label",
-      "caption": "Funktionsübersicht: Das Modul führt ausgehende VoIP-Anrufe über eine vorhandene VoIP-Instanz aus und erzeugt die Ansage mit AWS Polly. Telefonnummer und Ansagetext werden je Auftrag übergeben. Aufträge werden in einer FIFO-Warteschlange verarbeitet, die auch nach einem Neustart erhalten bleibt. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Wartezeit auf Annahme, Wiederholungen und Wiederholungspause sind konfigurierbar. Status und Warteschlangenlänge werden angezeigt. Die Warteschlange kann geleert und ein aktiver Anruf beendet werden."
+      "caption": "Funktionsübersicht: TAD_StartCall(Instanz-ID, Telefonnummer, Ansagetext) stellt einen Anrufauftrag in die FIFO-Warteschlange. Beispiel: TAD_StartCall(12345, '+491701234567', 'Achtung, eine Störung liegt vor.'); Die konfigurierte VoIP-Instanz baut den Anruf auf, AWS Polly erzeugt die Sprachausgabe. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Die Warteschlange bleibt über Neustarts hinweg erhalten. Wartezeit auf Annahme, Anzahl der Wiederholungen und Pause vor Wiederholungen sind konfigurierbar. TAD_ClearQueue(Instanz-ID) leert die Warteschlange, beendet aber keinen laufenden Anruf. TAD_Hangup(Instanz-ID) beendet den aktiven Anruf. Status, aktiver Anruf, Warteschlangenlänge und letzter Fehler werden als Variablen angezeigt."
     }
   ],
   "actions": [
