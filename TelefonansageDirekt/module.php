@@ -300,6 +300,10 @@ class TelefonansageDirekt extends IPSModule
         $voipID = $this->ReadPropertyInteger('VoIPInstanceID');
         if ($connectionID !== 0 && $voipID > 0 && IPS_InstanceExists($voipID)) {
             try {
+                $connection = VoIP_GetConnection($voipID, $connectionID);
+                if (!is_array($connection) || (array_key_exists('Connected', $connection) && !(bool)$connection['Connected'])) {
+                    return;
+                }
                 VoIP_Disconnect($voipID, $connectionID);
             } catch (Throwable $e) {
                 IPS_LogMessage('Telefonansage Direkt', 'VoIP_Disconnect fehlgeschlagen: ' . $e->getMessage());
