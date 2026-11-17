@@ -1,30 +1,19 @@
-# Telefonansage Direkt – Version 1.1 (IP-Symcon 9 mit Queue)
+# Telefonansage Direkt – Moduldokumentation
 
-Eigenes IP-Symcon-Modul für ausgehende VoIP-Anrufe mit automatischer Sprachausgabe. Telefonnummer und Ansagetext werden bei jedem Aufruf als Parameter übergeben. Die Aufträge werden über eine FIFO-Warteschlange verarbeitet.
+Die ausführliche deutsche Dokumentation zu Installation, Einrichtung, Konfiguration, Skriptfunktionen, Statusvariablen, Queue-Verhalten, Wiederholungen, Neustarts und Fehlerbehebung steht in der [Repository-Dokumentation](../README.md).
 
-## Zusammenfassung
+## Kurzüberblick
 
-Das Modul führt ausgehende Telefonansagen über die konfigurierte VoIP-Instanz aus. AWS Polly erzeugt die Sprachausgabe. Nach Gesprächsannahme wartet das Modul etwa zwei Sekunden vor der Wiedergabe. Anrufaufträge werden in einer FIFO-Warteschlange gespeichert, die Neustarts übersteht. Wartezeit auf Annahme, Anzahl der Wiederholungen und Pause vor Wiederholungen sind konfigurierbar.
+Das Modul führt ausgehende VoIP-Anrufe mit individuellen Ansagetexten aus. AWS Polly erzeugt aus dem Text eine WAV-Datei; nach Annahme des Gesprächs wird diese über die konfigurierte VoIP-Instanz abgespielt. Aufträge laufen einzeln über eine FIFO-Warteschlange, die Neustarts übersteht.
 
-## Funktionen
+Voraussetzungen sind IP-Symcon 9.0+, eine VoIP-Instanz sowie eine AWS-Polly-TTS-Instanz. AWS Polly und Telefonie können nutzungsabhängige Kosten verursachen.
 
-- **`TAD_StartCall(Instanz-ID, Telefonnummer, Ansagetext)`** – Fügt einen Anrufauftrag zur Warteschlange hinzu.
+## Öffentliche Funktionen
 
-  Beispiel:
+```php
+TAD_StartCall(12345, '+491701234567', 'Ihre Ansage.');
+TAD_ClearQueue(12345); // löscht wartende Aufträge, beendet keinen aktiven Anruf
+TAD_Hangup(12345);     // beendet den aktiven Anruf
+```
 
-  ```php
-  TAD_StartCall(12345, '+491701234567', 'Achtung, eine Störung liegt vor.');
-  ```
-
-- **`TAD_ClearQueue(Instanz-ID)`** – Leert die Warteschlange. Ein bereits laufender Anruf wird nicht beendet.
-- **`TAD_Hangup(Instanz-ID)`** – Beendet den aktiven Anruf.
-
-## Voraussetzungen
-
-- IP-Symcon 9
-- Funktionierende VoIP-Instanz
-- AWS-Polly-Text-to-Speech-Instanz
-
-## Verhalten beim Anruf
-
-Nach Annahme des Gesprächs wartet das Modul ungefähr zwei Sekunden vor der Sprachausgabe. Die Warteschlange bleibt über Neustarts hinweg erhalten. Bei entsprechenden Fehlern können Wiederholungen mit konfigurierbarer Anzahl und Pause ausgeführt werden.
+Die Instanz-ID ist jeweils das erste Argument. `TAD_StartCall` bestätigt mit `true` nur die Aufnahme in die Warteschlange, nicht die erfolgreiche Zustellung.
